@@ -1,0 +1,35 @@
+.business {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 30px;
+  margin: auto 0;
+
+  .image {
+    display: flex;
+    height: 300px;
+    width: 300px;
+  }
+
+  .businessInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    width: 100%;
+
+    > p {
+      font-weight: bold;
+
+      > span {
+        font-weight: normal;
+        margin-left: 5px;
+      }
+    }
+
+    > ul,
+    li {
+      list-style-type: none;
+      font-weight: normal;
+    }
+  }
+}
