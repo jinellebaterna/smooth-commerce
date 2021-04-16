@@ -7,9 +7,9 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import styles from "./BusinessListTable.module.scss";
 
 class BusinessesListTable extends React.Component {
-
   handleBusinessClick = business => {
     const { history } = this.props;
     history.push(`/business/${business.id}`);
@@ -18,7 +18,7 @@ class BusinessesListTable extends React.Component {
   render() {
     const { data } = this.props;
     return (
-      <div>
+      <div className={styles.container}>
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
@@ -32,7 +32,7 @@ class BusinessesListTable extends React.Component {
             <TableBody>
               {data.map(business => (
                 <TableRow key={business.id}>
-                  <TableCell>{business.id}</TableCell>
+                  <TableCell className={styles.count}>{business.id}</TableCell>
                   <TableCell
                     onClick={() => {
                       this.handleBusinessClick(business);

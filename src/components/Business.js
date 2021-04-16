@@ -27,7 +27,7 @@ const Business = ({ data }) => {
             {data.hours
               ? data.hours.map(hour => (
                   <li>
-                    {hour.day}: {hour.open}-{hour.close}
+                    {hour.day}: {hour.open} - {hour.close}
                   </li>
                 ))
               : null}
@@ -48,7 +48,13 @@ function mapStateToProps(
 ) {
   const businessId = parseInt(id, 10);
   return {
-    data: data.filter(business => business.id === businessId)[0]
+    data:
+      data.filter(business => business.id === businessId)[0] ||
+      (data[businessId] ||
+        data.map(item => ({
+          ...item
+        }))),
+    businessId
   };
 }
 

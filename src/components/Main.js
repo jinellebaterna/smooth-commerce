@@ -1,17 +1,23 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import * as actionCreators from "../actions/index";
 import styles from "./Main.module.scss";
-import BusinessesListTable from "../components/BusinessesListTable";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
+import Dashboard from "./Dashboard";
+import Business from "./Business";
+import { connect } from "react-redux";
+import * as actionCreators from "../actions";
 
-const Main = ({ data, fetchBusinessList }) => {
+const Main = ({ fetchBusinessList }) => {
   useEffect(() => {
     fetchBusinessList();
   }, []);
-
   return (
     <div className={styles.main}>
-      <BusinessesListTable data={data} />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route path="/business/:id" component={Business} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 };

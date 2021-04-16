@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  :global(.MuiTableCell-root) {
+    border-bottom: transparent;
+  }
+
+  :global(.MuiTableHead-root) {
+    background-color: cadetblue;
+  }
+
+  :global(.MuiTableCell-head) {
+    color: white;
+  }
+
+  :global(.MuiTableBody-root) {
+    cursor: pointer;
+  }
+
+  :global(.MuiTableRow-root) {
+    &:nth-of-type(even) {
+      background-color: lightgrey;
+    }
+  }
+
+  .count {
+    text-align: center;
+  }
+}
